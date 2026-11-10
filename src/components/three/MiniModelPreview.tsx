@@ -225,31 +225,6 @@ function MiniScene({ modelPath }: MiniSceneProps) {
   );
 
 }
-
-
-/* ==========================================
-   LOADING PLACEHOLDER
-========================================== */
-
-function LoadingSkeleton() {
-
-  return (
-
-    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black gap-3">
-
-      <div className="w-8 h-8 border-2 border-purple-500/40 border-t-purple-500 rounded-full animate-spin" />
-
-      <span className="text-xs text-gray-400">
-        Loading 3D Model...
-      </span>
-
-    </div>
-
-  );
-
-}
-
-
 /* ==========================================
    MAIN COMPONENT
 ========================================== */
