@@ -315,20 +315,6 @@ export const projects3D: Project3D[] = [
     category: 'prop',
     featured: false,
     wireframeAvailable: true
-  },
-  {
-    id: 'axe',
-    title: 'Axe Prop',
-    description: '3D axe model with detailed geometry and surface design',
-    longDescription: 'A hard-surface prop modeled in Autodesk Maya.',
-    modelPath: assetPath('models/axe.glb'),
-    screenshotPath: assetPath('images/maya-axe.svg'),
-    software: ['Autodesk Maya'],
-    tags: ['Props', 'Hard Surface', '3D Modeling'],
-    year: '2024',
-    category: 'prop',
-    featured: false,
-    wireframeAvailable: true
   }
 ];
 
