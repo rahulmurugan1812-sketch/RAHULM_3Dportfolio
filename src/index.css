@@ -40,6 +40,14 @@
 
 html {
   scroll-behavior: smooth;
+  /* Slightly slower, more controlled smooth scrolling */
+  scroll-padding-top: 80px; /* Account for fixed navbar */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {

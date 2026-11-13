@@ -315,6 +315,34 @@ export const projects3D: Project3D[] = [
     category: 'prop',
     featured: false,
     wireframeAvailable: true
+  },
+  {
+    id: 'axe',
+    title: 'Battle Axe',
+    description: 'Hero prop weapon with detailed hard-surface modeling and PBR texturing',
+    longDescription: 'A high-detail battle axe modeled as a hero prop for game-ready assets. Features intricate hard-surface geometry with beveled edges, detailed blade geometry, wrapped handle grip, and metal material definitions. Created entirely in Autodesk Maya with clean topology optimized for real-time rendering and PBR texturing workflow.',
+    modelPath: assetPath('models/axe.glb'),
+    screenshotPath: assetPath('images/maya-axe.svg'),
+    software: ['Autodesk Maya', 'Substance Painter'],
+    tags: ['Hard Surface', 'Props', 'Game Ready', 'Weapon', 'PBR'],
+    year: '2024',
+    category: 'prop',
+    featured: true,
+    wireframeAvailable: true
+  },
+  {
+    id: 'home',
+    title: 'Residential House',
+    description: 'Architectural residential building with detailed exterior and optimized topology',
+    longDescription: 'A complete residential house model designed for architectural visualization. Features detailed exterior architecture including roof structure, window and door assemblies, facade detailing, and landscape elements. Built with precise architectural proportions and clean topology suitable for archviz workflows and real-time walkthroughs.',
+    modelPath: assetPath('models/Home.glb'),
+    screenshotPath: assetPath('images/maya-home.svg'),
+    software: ['Autodesk Maya'],
+    tags: ['Architecture', 'Environment', 'Residential', 'ArchViz', 'Real-time'],
+    year: '2024',
+    category: 'environment',
+    featured: true,
+    wireframeAvailable: true
   }
 ];
 

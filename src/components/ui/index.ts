@@ -6,3 +6,4 @@ export { Badge } from './Badge';
 export { Text } from './Text';
 export { Heading } from './Heading';
 export { LoadingScreen } from './LoadingScreen';
+export { ScrollToTop, useScrollToTop } from './ScrollToTop';

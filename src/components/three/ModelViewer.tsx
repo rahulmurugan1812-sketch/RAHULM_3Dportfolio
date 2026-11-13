@@ -497,7 +497,7 @@ export function ModelViewer({
 
           gl.toneMapping = THREE.ACESFilmicToneMapping;
 
-          gl.toneMappingExposure = 1.1;
+          gl.toneMappingExposure = 0.8;
 
           gl.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -675,84 +675,47 @@ function ModelScene({
 
     if (!clonedScene) return;
 
+    // Center the model - robust approach for any model structure
     const box = new THREE.Box3().setFromObject(clonedScene);
-
     const center = box.getCenter(new THREE.Vector3());
-
     const size = box.getSize(new THREE.Vector3());
-
-    const maxDimension = Math.max(
-      size.x,
-      size.y,
-      size.z
-    );
+    const maxDimension = Math.max(size.x, size.y, size.z);
 
     if (!Number.isFinite(maxDimension) || maxDimension <= 0) {
       console.error('Invalid 3D model dimensions:', modelPath);
       return;
     }
 
-    // Center the model
+    // Shift model so its geometric center is at world origin (0,0,0)
+    clonedScene.position.sub(center);
 
-    clonedScene.position.set(
-      -center.x,
-      -center.y,
-      -center.z
-    );
+    // Verify centering by re-computing bounds after shift
+    const verifyBox = new THREE.Box3().setFromObject(clonedScene);
+    const verifyCenter = verifyBox.getCenter(new THREE.Vector3());
 
     const perspectiveCamera = camera as THREE.PerspectiveCamera;
-
     const fov = perspectiveCamera.fov * Math.PI / 180;
+    const cameraDistance = (maxDimension / (2 * Math.tan(fov / 2))) * 1.5;
 
-    const cameraDistance =
-      (maxDimension / (2 * Math.tan(fov / 2))) * 1.5;
-
-    // Position camera
-
-    perspectiveCamera.position.set(
-      cameraDistance * 0.8,
-      cameraDistance * 0.6,
-      cameraDistance * 1.2
-    );
-
-    perspectiveCamera.lookAt(0, 0, 0);
-
+    // Position camera at world origin height (Y=0) looking at model center
+    perspectiveCamera.position.set(0, 0, cameraDistance * 1.1);
+    perspectiveCamera.lookAt(verifyCenter.x, verifyCenter.y, verifyCenter.z);
     perspectiveCamera.updateProjectionMatrix();
 
-    // Preserve original materials and textures
-
     clonedScene.traverse((child) => {
-
       if (child instanceof THREE.Mesh) {
-
         child.castShadow = true;
-
         child.receiveShadow = true;
-
       }
-
     });
 
-    // Update controls
-
+    // Update controls to orbit around the ACTUAL model center
     if (controlsRef.current) {
-
-      controlsRef.current.target.set(0, 0, 0);
-
-      controlsRef.current.minDistance = Math.max(
-        maxDimension * 0.3,
-        0.5
-      );
-
-      controlsRef.current.maxDistance = Math.max(
-        maxDimension * 10,
-        100
-      );
-
+      controlsRef.current.target.copy(verifyCenter);
+      controlsRef.current.minDistance = Math.max(maxDimension * 0.1, 0.1);
+      controlsRef.current.maxDistance = Math.max(maxDimension * 10, 100);
       controlsRef.current.update();
-
       controlsRef.current.saveState();
-
     }
 
     onLoad();
@@ -848,22 +811,22 @@ function ModelScene({
 
     <>
 
-      <ambientLight intensity={1.2} />
+      <ambientLight intensity={0.45} />
 
       <directionalLight
         position={[10, 15, 10]}
-        intensity={2}
+        intensity={1.0}
         castShadow
       />
 
       <directionalLight
         position={[-10, 10, -10]}
-        intensity={1}
+        intensity={0.5}
       />
 
       <directionalLight
         position={[0, -5, 5]}
-        intensity={0.5}
+        intensity={0.25}
       />
 
       <Environment
