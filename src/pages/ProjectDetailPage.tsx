@@ -156,7 +156,7 @@ export default function ProjectDetailPage() {
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <Card variant="outlined" padding="none" className="overflow-hidden bg-[#141417] border-white/[0.07]">
-                  <div className="aspect-video bg-black rounded-t-[24px]">
+                  <div className="aspect-[4/3] bg-black rounded-t-[24px]">
                     <ModelViewer
                       modelPath={project.modelPath}
                       projectName={project.title}

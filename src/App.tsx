@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { LoadingScreen } from './components/ui/LoadingScreen';
+import { ScrollToTop } from './components/ui/ScrollToTop';
+import { EnhancedSmoothScroll } from './utils/smoothScroll';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import SkillsPage from './pages/SkillsPage';
@@ -32,36 +34,40 @@ function App() {
   }
 
   return (
-    <Routes>
-      {/* Home Page - Bento Grid Landing with minimal navbar */}
-      <Route path="/" element={<HomePage />} />
+    <>
+      <ScrollToTop />
+      <EnhancedSmoothScroll />
+      <Routes>
+        {/* Home Page - Bento Grid Landing with minimal navbar */}
+        <Route path="/" element={<HomePage />} />
 
-      {/* About Page */}
-      <Route path="/about" element={<AboutPage />} />
+        {/* About Page */}
+        <Route path="/about" element={<AboutPage />} />
 
-      {/* Skills Page */}
-      <Route path="/skills" element={<SkillsPage />} />
+        {/* Skills Page */}
+        <Route path="/skills" element={<SkillsPage />} />
 
-      {/* Specialization Page */}
-      <Route path="/specialization" element={<SpecializationPage />} />
+        {/* Specialization Page */}
+        <Route path="/specialization" element={<SpecializationPage />} />
 
-      {/* Projects Pages */}
-      <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/projects/:id" element={<ProjectDetailPage />} />
-      <Route path="/maya-3d" element={<Maya3DPage />} />
+        {/* Projects Pages */}
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:id" element={<ProjectDetailPage />} />
+        <Route path="/maya-3d" element={<Maya3DPage />} />
 
-      {/* Certifications Page */}
-      <Route path="/certifications" element={<CertificationsPage />} />
+        {/* Certifications Page */}
+        <Route path="/certifications" element={<CertificationsPage />} />
 
-      {/* Experience Page */}
-      <Route path="/experience" element={<ExperiencePage />} />
+        {/* Experience Page */}
+        <Route path="/experience" element={<ExperiencePage />} />
 
-      {/* Contact Page */}
-      <Route path="/contact" element={<ContactPage />} />
+        {/* Contact Page */}
+        <Route path="/contact" element={<ContactPage />} />
 
-      {/* 404 - Catch all */}
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+        {/* 404 - Catch all */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 }
 
