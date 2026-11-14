@@ -97,10 +97,10 @@ export function Contact() {
       }, 5000);
     } catch (err: unknown) {
       console.error('EmailJS error:', err);
-      const rawText = typeof err === 'object' && err !== null && 'text' in err 
-        ? String((err as { text: unknown }).text) 
+      const rawText = typeof err === 'object' && err !== null && 'text' in err
+        ? String((err as { text: unknown }).text)
         : '';
-      
+
       let friendlyError = '';
       if (rawText.toLowerCase().includes('invalid grant') || rawText.toLowerCase().includes('reconnect')) {
         friendlyError = 'EmailJS Gmail authorization expired. Please reconnect Gmail in EmailJS dashboard, or use the direct email button below.';
@@ -143,13 +143,13 @@ export function Contact() {
       href: 'https://github.com/rahul1604-m',
       hint: 'Code repositories & projects'
     },
-    {
-      icon: Globe,
-      label: 'GitHub Pages Portfolio',
-      value: 'rahul1604-m.github.io',
-      href: 'https://rahul1604-m.github.io',
-      hint: 'Hosted live portfolio'
-    },
+    // {
+    //   icon: Globe,
+    //   label: 'GitHub Pages Portfolio',
+    //   value: 'rahul1604-m.github.io',
+    //   href: 'https://rahul1604-m.github.io',
+    //   hint: 'Hosted live portfolio'
+    // },
     {
       icon: MapPin,
       label: 'Location',
@@ -170,7 +170,7 @@ export function Contact() {
           Contact Me
         </Heading>
         <Text size="lg" color="muted" className="max-w-2xl mx-auto leading-relaxed">
-          Open to full-time roles,3D Artist & Autodesk Maya Developer,data analysis contracts, 
+          Open to full-time roles,3D Artist & Autodesk Maya Developer,data analysis contracts,
           and technology collaborations. Reach out via email or the form below.
         </Text>
       </div>
@@ -194,9 +194,8 @@ export function Contact() {
                     href={item.href}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
-                    className={`flex items-start gap-4 p-3.5 rounded-xl border border-border/50 bg-bg/50 hover:bg-bg-elevated hover:border-accent/40 transition-all duration-200 group ${
-                      item.href === '#' ? 'pointer-events-none' : ''
-                    }`}
+                    className={`flex items-start gap-4 p-3.5 rounded-xl border border-border/50 bg-bg/50 hover:bg-bg-elevated hover:border-accent/40 transition-all duration-200 group ${item.href === '#' ? 'pointer-events-none' : ''
+                      }`}
                   >
                     <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                       <ItemIcon className="w-5 h-5" />
@@ -363,9 +362,8 @@ export function Contact() {
           >
             {/* Ambient Background Glow */}
             <div
-              className={`absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-3xl pointer-events-none opacity-20 ${
-                modalType === 'success' ? 'bg-accent' : 'bg-red-500'
-              }`}
+              className={`absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-3xl pointer-events-none opacity-20 ${modalType === 'success' ? 'bg-accent' : 'bg-red-500'
+                }`}
             />
 
             {/* Top Close Button */}
@@ -396,7 +394,7 @@ export function Contact() {
                 </h3>
 
                 <p className="text-sm text-text-muted max-w-md mb-6 leading-relaxed">
-                  Thank you for reaching out, <span className="text-text font-semibold">{sentDetails?.name || 'there'}</span>! Your message has been transmitted directly to Rahul M (<span className="text-accent font-mono text-xs">rahulmurugam1812@gmail.com</span>). I will get back to you shortly.
+                  Thank you for reaching out, <span className="text-text font-semibold">{sentDetails?.name || 'there'}</span>! Your message has been transmitted directly to Rahul M (<span className="text-accent font-mono text-xs">rahulmurugan1812@gmail.com</span>). I will get back to you shortly.
                 </p>
 
                 {sentDetails?.subject && (
