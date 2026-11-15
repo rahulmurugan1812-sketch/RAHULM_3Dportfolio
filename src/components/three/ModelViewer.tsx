@@ -700,6 +700,11 @@ function ModelScene({
     // Position camera at world origin height (Y=0) looking at model center
     perspectiveCamera.position.set(0, 0, cameraDistance * 1.1);
     perspectiveCamera.lookAt(verifyCenter.x, verifyCenter.y, verifyCenter.z);
+
+    const minDist = Math.max(maxDimension * 0.1, 0.001);
+    const maxDist = Math.max(maxDimension * 10, 10);
+    perspectiveCamera.near = Math.min(0.01, minDist * 0.5);
+    perspectiveCamera.far = Math.max(1000, maxDist * 10);
     perspectiveCamera.updateProjectionMatrix();
 
     clonedScene.traverse((child) => {
@@ -712,8 +717,8 @@ function ModelScene({
     // Update controls to orbit around the ACTUAL model center
     if (controlsRef.current) {
       controlsRef.current.target.copy(verifyCenter);
-      controlsRef.current.minDistance = Math.max(maxDimension * 0.1, 0.1);
-      controlsRef.current.maxDistance = Math.max(maxDimension * 10, 100);
+      controlsRef.current.minDistance = minDist;
+      controlsRef.current.maxDistance = maxDist;
       controlsRef.current.update();
       controlsRef.current.saveState();
     }
