@@ -231,7 +231,7 @@ export function Portfolio3D() {
                   projectName={fullscreenModalProject.title}
                   category={categoryLabels[fullscreenModalProject.category]}
                   software={fullscreenModalProject.software}
-                  autoRotate={false}
+                  autoRotate={true}
                   showWireframe={false}
                   showControls={true}
                   enableControls={true}

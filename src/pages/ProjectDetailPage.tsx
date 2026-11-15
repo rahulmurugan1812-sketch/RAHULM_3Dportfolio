@@ -162,7 +162,7 @@ export default function ProjectDetailPage() {
                       projectName={project.title}
                       category={categoryLabels[project.category as keyof typeof categoryLabels] || project.category}
                       software={project.software}
-                      autoRotate={false}
+                      autoRotate={true}
                       showWireframe={false}
                       showControls={true}
                       enableControls={true}
