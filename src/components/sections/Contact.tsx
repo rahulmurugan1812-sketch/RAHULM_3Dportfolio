@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
-import { Mail, MapPin, Globe, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles } from 'lucide-react';
 import { Section, Heading, Text, Card, Button } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 
