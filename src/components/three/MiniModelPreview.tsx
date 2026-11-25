@@ -162,6 +162,13 @@ function MiniScene({ modelPath }: MiniSceneProps) {
 
             material.side = THREE.DoubleSide;
 
+            if ('color' in material && material.color instanceof THREE.Color) {
+              material.color.set(0x9a9aa0);
+            }
+            if ('roughness' in material) {
+              material.roughness = Math.max(material.roughness, 0.45);
+            }
+
             material.needsUpdate = true;
 
           });
@@ -192,21 +199,21 @@ function MiniScene({ modelPath }: MiniSceneProps) {
 
     <>
 
-      <ambientLight intensity={1.2} />
+      <ambientLight intensity={0.6} />
 
       <directionalLight
         position={[8, 12, 8]}
-        intensity={2}
+        intensity={1.0}
       />
 
       <directionalLight
         position={[-8, 8, -8]}
-        intensity={1}
+        intensity={0.5}
       />
 
       <directionalLight
         position={[0, -4, 4]}
-        intensity={0.5}
+        intensity={0.25}
       />
 
       <Environment

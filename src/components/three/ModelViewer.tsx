@@ -712,6 +712,22 @@ function ModelScene({
       if (child instanceof THREE.Mesh) {
         child.castShadow = true;
         child.receiveShadow = true;
+
+        if (child.material) {
+          const materials = Array.isArray(child.material)
+            ? child.material
+            : [child.material];
+
+          materials.forEach((material) => {
+            if ('color' in material && material.color instanceof THREE.Color) {
+              material.color.set(0x9a9aa0);
+            }
+            if ('roughness' in material) {
+              material.roughness = Math.max(material.roughness, 0.45);
+            }
+            material.needsUpdate = true;
+          });
+        }
       }
     });
 
