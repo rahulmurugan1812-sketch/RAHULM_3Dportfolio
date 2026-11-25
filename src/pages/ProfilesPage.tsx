@@ -92,9 +92,9 @@ const profileCards = [
   {
     id: 'email',
     platform: 'Email',
-    handle: 'rahulmurugam1812@gmail.com',
+    handle: 'rahulmurugan1812@gmail.com',
     description: 'Reach out directly for collaborations, freelance work, or project inquiries.',
-    url: 'mailto:rahulmurugam1812@gmail.com',
+    url: 'mailto:rahulmurugan1812@gmail.com',
     Icon: MailIcon,
     color: 'text-green-400',
     ring: 'ring-green-700/40',

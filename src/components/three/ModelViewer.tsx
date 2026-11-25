@@ -124,7 +124,7 @@ interface ModelViewerProps {
 export function ModelViewer({
   modelPath,
   showWireframe = false,
-  autoRotate = false,
+  autoRotate = true,
   enableControls = true,
   className = '',
   cameraPosition = [0, 1, 5],
@@ -168,7 +168,8 @@ export function ModelViewer({
     setModelLoaded(false);
     setModelError(null);
     setRetryKey(0);
-  }, [modelPath]);
+    setAutoRotateEnabled(autoRotate);
+  }, [modelPath, autoRotate]);
 
   // ==========================================
   // FULLSCREEN

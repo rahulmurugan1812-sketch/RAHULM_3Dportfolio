@@ -30,7 +30,7 @@ export const artistProfile: ArtistProfile = {
     'MCA postgraduate specializing in 3D art, hard-surface modeling, and technical visualization using Autodesk Maya. Skilled in architectural environments, industrial product modeling, and detailed prop creation. Experienced in the complete 3D pipeline, including clean topology, UV unwrapping, PBR texturing, and rendering using Adobe Substance 3D Painter. Combining technical precision with creative problem-solving to deliver production-ready, visually compelling 3D assets.',
 
   location: 'Tamil Nadu, India',
-  email: 'rahulmurugam1812@gmail.com',
+  email: 'rahulmurugan1812@gmail.com',
 
   socialLinks: [
     {
@@ -47,8 +47,8 @@ export const artistProfile: ArtistProfile = {
     },
     {
       platform: 'Email',
-      url: 'mailto:rahulmurugam1812@gmail.com',
-      label: 'rahulmurugam1812@gmail.com',
+      url: 'mailto:rahulmurugan1812@gmail.com',
+      label: 'rahulmurugan1812@gmail.com',
       icon: 'mail'
     },
     {
@@ -233,11 +233,11 @@ export const projects3D: Project3D[] = [
     wireframeAvailable: true
   },
   {
-    id: 'firepump',
-    title: 'Fire Pump System',
-    description: 'Industrial fire suppression equipment with detailed mechanical assemblies and piping',
-    longDescription: 'A detailed industrial fire pump system modeled for technical visualization. Includes pump housing, impeller assembly, valve mechanisms, piping connections, and mounting brackets. Built with manufacturing-accurate proportions and clean topology for CAD-style presentation renders.',
-    modelPath: assetPath('models/firepump.glb'),
+    id: 'newfirepipe',
+    title: 'Fire Pipe System',
+    description: 'Industrial fire suppression piping system with detailed mechanical assemblies',
+    longDescription: 'A detailed industrial fire pipe system modeled for technical visualization. Includes piping networks, valve mechanisms, connection fittings, and mounting supports. Built with manufacturing-accurate proportions and clean topology for CAD-style presentation renders.',
+    modelPath: assetPath('models/newfirePIPE.glb'),
     screenshotPath: assetPath('images/maya-firepump.svg'),
     software: ['Autodesk Maya'],
     tags: ['Industrial', 'Mechanical', 'Technical Viz', 'Product Design'],
@@ -371,8 +371,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: 'Email',
-    url: 'mailto:rahulmurugam1812@gmail.com',
-    label: 'rahulmurugam1812@gmail.com',
+    url: 'mailto:rahulmurugan1812@gmail.com',
+    label: 'rahulmurugan1812@gmail.com',
     icon: 'mail'
   },
   {
