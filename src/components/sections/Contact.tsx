@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
-import { Mail, MapPin, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles, Download, FileText } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles, FileText, Download, ExternalLink, ShieldCheck } from 'lucide-react';
 import { Section, Heading, Text, Card, Button } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 
@@ -121,6 +121,8 @@ export function Contact() {
     window.location.href = mailtoLink;
   };
 
+  const resumeUrl = artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf';
+
   const contactLinks = [
     {
       icon: Mail,
@@ -156,14 +158,6 @@ export function Contact() {
       value: artistProfile.location,
       href: '#',
       hint: 'Based in Tamil Nadu, India'
-    },
-    {
-      icon: FileText,
-      label: 'Curriculum Vitae',
-      value: 'Download Resume (PDF)',
-      href: artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf',
-      hint: 'Verified 3D Artist & MCA Resume',
-      isDownload: true
     }
   ];
 
@@ -184,8 +178,58 @@ export function Contact() {
       </div>
 
       <div className="grid lg:grid-cols-12 gap-8 max-w-[1200px] mx-auto items-start">
-        {/* Contact Information Cards */}
+        {/* Contact Information & Resume Download Cards */}
         <div className="lg:col-span-5 space-y-4">
+          {/* Quick Resume Download Card */}
+          <Card variant="outlined" padding="lg" className="bg-bg-elevated/40 border-border/80 backdrop-blur-sm relative overflow-hidden group">
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent flex-shrink-0 group-hover:scale-105 transition-transform">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-text flex items-center gap-1.5">
+                    Curriculum Vitae
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-accent/15 text-accent border border-accent/25 uppercase">
+                      PDF
+                    </span>
+                  </h4>
+                  <p className="text-xs text-text-subtle font-mono">
+                    RAHUL_M_3d.pdf • 205 KB
+                  </p>
+                </div>
+              </div>
+              <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-text-subtle">
+                <ShieldCheck className="w-3.5 h-3.5 text-accent" /> Verified
+              </span>
+            </div>
+
+            <p className="text-xs text-text-muted mb-4 leading-relaxed">
+              Looking for credentials, software proficiencies, and experience breakdown? Grab a fresh copy of my resume.
+            </p>
+
+            <div className="flex items-center gap-2">
+              <a
+                href={resumeUrl}
+                download="RAHUL_M_3d.pdf"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-colors shadow-md shadow-accent/20"
+              >
+                <Download className="w-4 h-4" />
+                Download CV
+              </a>
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-border/80 bg-bg/60 hover:bg-bg-elevated text-text text-xs font-medium hover:border-accent/40 transition-colors"
+                title="Preview in browser"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Preview</span>
+              </a>
+            </div>
+          </Card>
+
           <Card variant="outlined" padding="lg" className="bg-bg-elevated/40 border-border/80 backdrop-blur-sm">
             <Heading as="h3" size="h4" weight="bold" animate={false} className="text-text mb-6">
               Contact Channels
@@ -195,13 +239,11 @@ export function Contact() {
               {contactLinks.map((item) => {
                 const ItemIcon = item.icon;
                 const isExternal = item.href.startsWith('http');
-                const isDownload = 'isDownload' in item && item.isDownload;
 
                 return (
                   <a
                     key={item.label}
                     href={item.href}
-                    download={isDownload ? 'RAHUL_M_3d.pdf' : undefined}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     className={`flex items-start gap-4 p-3.5 rounded-xl border border-border/50 bg-bg/50 hover:bg-bg-elevated hover:border-accent/40 transition-all duration-200 group ${item.href === '#' ? 'pointer-events-none' : ''
@@ -221,11 +263,6 @@ export function Contact() {
                         {item.hint}
                       </span>
                     </div>
-                    {isDownload && (
-                      <div className="self-center p-2 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-bg transition-colors">
-                        <Download className="w-4 h-4" />
-                      </div>
-                    )}
                   </a>
                 );
               })}

@@ -96,4 +96,5 @@ export interface ArtistProfile {
   education: Education[];
   projects: ResumeProject[];
   certifications: Certification[];
+  resumePath?: string;
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Box, Layers, Palette, Code2, Scissors, Download, FileText } from 'lucide-react';
+import { Box, Layers, Palette, Code2, Scissors, Download, FileText, ExternalLink, CheckCircle2 } from 'lucide-react';
 import { Section, Heading, Text, Card, Button } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 import profileImg from '../../assets/img1.jpeg';
@@ -63,21 +63,68 @@ export function About() {
       {/* Profile + Content Layout */}
       <div className="max-w-[1200px] mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          
-          {/* Left: Profile Image */}
+
+          {/* Left: Profile Image & Resume Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="lg:sticky lg:top-24"
+            className="lg:sticky lg:top-24 flex flex-col gap-6"
           >
-            <div className="w-full max-w-xs mx-auto lg:mx-0 aspect-square rounded-2xl overflow-hidden shadow-2xl">
+            <div className="w-full max-w-xs mx-auto lg:mx-0 aspect-square rounded-2xl overflow-hidden shadow-2xl border border-white/[0.08]">
               <img
                 src={profileImg}
                 alt={artistProfile.name}
                 className="w-full h-full object-cover bg-[#1a1a24]"
               />
+            </div>
+
+            {/* Premium Resume Glassmorphic Card under Profile */}
+            <div className="w-full max-w-xs mx-auto lg:mx-0 p-5 rounded-2xl bg-gradient-to-b from-bg-elevated/70 to-bg/90 border border-border/80 shadow-xl backdrop-blur-md">
+              <div className="flex items-center justify-between mb-3 pb-3 border-b border-border/40">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-accent/15 border border-accent/25 flex items-center justify-center text-accent">
+                    <FileText className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-text block leading-tight">Curriculum Vitae</span>
+                    <span className="text-[10px] text-text-subtle font-mono">PDF • 205 KB</span>
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1 text-[10px] font-mono font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                  <CheckCircle2 className="w-2.5 h-2.5" />
+                  Verified
+                </span>
+              </div>
+
+              <p className="text-xs text-text-muted mb-4 leading-relaxed">
+                Complete breakdown of MCA degree, Maya 3D hard-surface modeling, and technical certifications.
+              </p>
+
+              <div className="flex flex-col gap-2">
+                <a
+                  href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'}
+                  download="RAHUL_M_3d.pdf"
+                  className="w-full"
+                >
+                  <Button size="sm" className="w-full gap-2 shadow-lg shadow-accent/20 cursor-pointer justify-center text-xs font-semibold">
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Download Resume</span>
+                  </Button>
+                </a>
+                <a
+                  href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <Button size="sm" variant="secondary" className="w-full gap-2 cursor-pointer justify-center text-xs text-text-muted hover:text-text">
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>View in Browser</span>
+                  </Button>
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -96,35 +143,12 @@ export function About() {
             </div>
 
             {/* Long Bio */}
-            <div className="mb-8">
+            <div className="mb-12">
               <Text size="lg" color="muted" className="leading-relaxed space-y-4">
                 {artistProfile.longBio.split('\n\n').map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
               </Text>
-            </div>
-
-            {/* Download Resume Action */}
-            <div className="mb-12 flex flex-wrap items-center gap-4 p-4 md:p-5 rounded-2xl bg-bg-elevated/40 border border-border/60 backdrop-blur-sm">
-              <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent flex-shrink-0">
-                <FileText className="w-5 h-5" />
-              </div>
-              <div className="flex-1 min-w-[200px]">
-                <h4 className="text-sm font-bold text-text mb-0.5">Curriculum Vitae</h4>
-                <p className="text-xs text-text-muted">
-                  Download my full professional resume (PDF) covering MCA, 3D artist pipeline, and technical credentials.
-                </p>
-              </div>
-              <a
-                href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'}
-                download="RAHUL_M_3d.pdf"
-                className="inline-flex"
-              >
-                <Button size="md" className="gap-2 shadow-lg shadow-accent/15 cursor-pointer">
-                  <Download className="w-4 h-4" />
-                  <span>Download Resume (PDF)</span>
-                </Button>
-              </a>
             </div>
 
             {/* Expertise Areas Grid */}
@@ -146,9 +170,9 @@ export function About() {
                       viewport={{ once: true, margin: '-50px' }}
                       transition={{ duration: 0.5, delay: index * 0.08 }}
                     >
-                      <Card 
-                        variant="outlined" 
-                        padding="lg" 
+                      <Card
+                        variant="outlined"
+                        padding="lg"
                         className={`h-full bg-bg-elevated/40 border-border/60 hover:border-accent/30 transition-all duration-300 backdrop-blur-sm group ${area.bg} ${area.border}`}
                       >
                         <div className="flex items-start gap-4">
