@@ -6,10 +6,12 @@ import { Section, Heading, Text, Card, Button } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 
 export function Resume() {
+  const resumeUrl = artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf';
+
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume/Rahul_M_Resume.pdf';
-    link.download = 'Rahul_M_Resume.pdf';
+    link.href = resumeUrl;
+    link.download = 'RAHUL_M_3d.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -140,7 +142,7 @@ export function Resume() {
                   <span>Download Resume (PDF)</span>
                 </Button>
                 <a 
-                  href="/resume/Rahul_M_Resume.pdf" 
+                  href={resumeUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex"

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download, LayoutGrid, Home, User, Code, Award, Mail, Briefcase } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../ui';
+import { artistProfile } from '../../data/portfolio';
 
 const navItems = [
   { label: 'Home', href: '/', icon: Home },
@@ -122,7 +123,7 @@ export function Navigation() {
 
           {/* Desktop Right CTA - Resume only (Projects is in nav) */}
           <div className="hidden sm:flex items-center gap-3">
-            <a href="/resume/Rahul_M_Resume.pdf" download="Rahul_M_Resume.pdf">
+            <a href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'} download="RAHUL_M_3d.pdf">
               <Button size="sm" variant="secondary" className="gap-1.5 text-xs">
                 <Download className="w-3.5 h-3.5" />
                 Resume
@@ -172,7 +173,7 @@ export function Navigation() {
                   );
                 })}
                 <div className="pt-4 border-t border-border/50 flex flex-col gap-2.5 mt-3">
-                  <a href="/resume/Rahul_M_Resume.pdf" download="Rahul_M_Resume.pdf">
+                  <a href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'} download="RAHUL_M_3d.pdf">
                     <Button variant="secondary" className="w-full gap-2 text-xs">
                       <Download className="w-4 h-4" />
                       Download Resume (PDF)

@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Box, Layers, Palette, Code2, Scissors } from 'lucide-react';
-import { Section, Heading, Text, Card } from '../ui';
+import { Box, Layers, Palette, Code2, Scissors, Download, FileText } from 'lucide-react';
+import { Section, Heading, Text, Card, Button } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 import profileImg from '../../assets/img1.jpeg';
 
@@ -96,12 +96,35 @@ export function About() {
             </div>
 
             {/* Long Bio */}
-            <div className="mb-12">
+            <div className="mb-8">
               <Text size="lg" color="muted" className="leading-relaxed space-y-4">
                 {artistProfile.longBio.split('\n\n').map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
               </Text>
+            </div>
+
+            {/* Download Resume Action */}
+            <div className="mb-12 flex flex-wrap items-center gap-4 p-4 md:p-5 rounded-2xl bg-bg-elevated/40 border border-border/60 backdrop-blur-sm">
+              <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent flex-shrink-0">
+                <FileText className="w-5 h-5" />
+              </div>
+              <div className="flex-1 min-w-[200px]">
+                <h4 className="text-sm font-bold text-text mb-0.5">Curriculum Vitae</h4>
+                <p className="text-xs text-text-muted">
+                  Download my full professional resume (PDF) covering MCA, 3D artist pipeline, and technical credentials.
+                </p>
+              </div>
+              <a
+                href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'}
+                download="RAHUL_M_3d.pdf"
+                className="inline-flex"
+              >
+                <Button size="md" className="gap-2 shadow-lg shadow-accent/15 cursor-pointer">
+                  <Download className="w-4 h-4" />
+                  <span>Download Resume (PDF)</span>
+                </Button>
+              </a>
             </div>
 
             {/* Expertise Areas Grid */}

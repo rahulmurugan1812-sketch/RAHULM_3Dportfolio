@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
-import { Mail, MapPin, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles, Download, FileText } from 'lucide-react';
 import { Section, Heading, Text, Card, Button } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 
@@ -156,6 +156,14 @@ export function Contact() {
       value: artistProfile.location,
       href: '#',
       hint: 'Based in Tamil Nadu, India'
+    },
+    {
+      icon: FileText,
+      label: 'Curriculum Vitae',
+      value: 'Download Resume (PDF)',
+      href: artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf',
+      hint: 'Verified 3D Artist & MCA Resume',
+      isDownload: true
     }
   ];
 
@@ -187,11 +195,13 @@ export function Contact() {
               {contactLinks.map((item) => {
                 const ItemIcon = item.icon;
                 const isExternal = item.href.startsWith('http');
+                const isDownload = 'isDownload' in item && item.isDownload;
 
                 return (
                   <a
                     key={item.label}
                     href={item.href}
+                    download={isDownload ? 'RAHUL_M_3d.pdf' : undefined}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     className={`flex items-start gap-4 p-3.5 rounded-xl border border-border/50 bg-bg/50 hover:bg-bg-elevated hover:border-accent/40 transition-all duration-200 group ${item.href === '#' ? 'pointer-events-none' : ''
@@ -211,6 +221,11 @@ export function Contact() {
                         {item.hint}
                       </span>
                     </div>
+                    {isDownload && (
+                      <div className="self-center p-2 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-bg transition-colors">
+                        <Download className="w-4 h-4" />
+                      </div>
+                    )}
                   </a>
                 );
               })}
