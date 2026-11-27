@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
-import { Mail, MapPin, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles, FileText, Download, ExternalLink, ShieldCheck } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, AlertCircle, X, Sparkles, FileText, Download, ExternalLink, ShieldCheck, Phone } from 'lucide-react';
 import { Section, Heading, Text, Card, Button } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 
@@ -130,6 +130,13 @@ export function Contact() {
       value: artistProfile.email,
       href: `mailto:${artistProfile.email}`,
       hint: 'Send an email directly'
+    },
+    {
+      icon: Phone,
+      label: 'Phone Number',
+      value: artistProfile.phone || '8072164394',
+      href: `tel:${artistProfile.phone || '8072164394'}`,
+      hint: 'Call or WhatsApp'
     },
     {
       icon: LinkedinIcon,
