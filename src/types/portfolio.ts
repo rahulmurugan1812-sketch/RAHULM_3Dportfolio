@@ -89,6 +89,7 @@ export interface ArtistProfile {
   longBio: string;
   location: string;
   email: string;
+  phone?: string;
   resumePath?: string;
   socialLinks: SocialLink[];
   skills: Skill[];

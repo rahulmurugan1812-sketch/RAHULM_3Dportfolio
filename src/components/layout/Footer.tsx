@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from 'react-scroll';
-import { Mail, Globe } from 'lucide-react';
+import { Mail, Globe, Phone, MapPin } from 'lucide-react';
 import { Text, Heading } from '../ui';
 import { artistProfile } from '../../data/portfolio';
 
@@ -119,15 +119,30 @@ export function Footer() {
               Direct Contact
             </Heading>
             <div className="space-y-2.5 text-xs text-text-muted font-mono">
-              <div>
-                <span className="text-text-subtle block text-[10px]">EMAIL</span>
-                <a href={`mailto:${artistProfile.email}`} className="text-text hover:text-accent transition-colors">
-                  {artistProfile.email}
-                </a>
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-text-subtle flex-shrink-0" />
+                <div>
+                  <span className="text-text-subtle block text-[10px]">PHONE</span>
+                  <a href={`tel:${artistProfile.phone || '8072164394'}`} className="text-text hover:text-accent transition-colors">
+                    {artistProfile.phone || '8072164394'}
+                  </a>
+                </div>
               </div>
-              <div>
-                <span className="text-text-subtle block text-[10px]">LOCATION</span>
-                <span className="text-text">{artistProfile.location}</span>
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-text-subtle flex-shrink-0" />
+                <div>
+                  <span className="text-text-subtle block text-[10px]">EMAIL</span>
+                  <a href={`mailto:${artistProfile.email}`} className="text-text hover:text-accent transition-colors">
+                    {artistProfile.email}
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-text-subtle flex-shrink-0" />
+                <div>
+                  <span className="text-text-subtle block text-[10px]">LOCATION</span>
+                  <span className="text-text">{artistProfile.location}</span>
+                </div>
               </div>
               <div>
                 <span className="text-text-subtle block text-[10px]">STATUS</span>
