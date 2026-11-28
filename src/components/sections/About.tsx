@@ -104,8 +104,8 @@ export function About() {
 
               <div className="flex flex-col gap-2">
                 <a
-                  href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'}
-                  download="RAHUL_M_3d.pdf"
+                  href={artistProfile.resumePath || '/resume/RAHUL_M_3D1.pdf'}
+                  download="RAHUL_M_3D1.pdf"
                   className="w-full"
                 >
                   <Button size="sm" className="w-full gap-2 shadow-lg shadow-accent/20 cursor-pointer justify-center text-xs font-semibold">
@@ -114,7 +114,7 @@ export function About() {
                   </Button>
                 </a>
                 <a
-                  href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'}
+                  href={artistProfile.resumePath || '/resume/RAHUL_M_3D1.pdf'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"

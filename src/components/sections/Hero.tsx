@@ -107,7 +107,7 @@ export function Hero() {
                 </Button>
               </Link>
 
-              <a href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'} download="RAHUL_M_3d.pdf">
+              <a href={artistProfile.resumePath || '/resume/RAHUL_M_3D1.pdf'} download="RAHUL_M_3D1.pdf">
                 <Button size="lg" variant="secondary" className="cursor-pointer">
                   <Download className="w-5 h-5" />
                   Download Resume

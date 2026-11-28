@@ -121,7 +121,7 @@ export function Contact() {
     window.location.href = mailtoLink;
   };
 
-  const resumeUrl = artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf';
+  const resumeUrl = artistProfile.resumePath || '/resume/RAHUL_M_3D1.pdf';
 
   const contactLinks = [
     {
@@ -202,7 +202,7 @@ export function Contact() {
                     </span>
                   </h4>
                   <p className="text-xs text-text-subtle font-mono">
-                    RAHUL_M_3d.pdf • 205 KB
+                    RAHUL_M_3D1.pdf • 205 KB
                   </p>
                 </div>
               </div>
@@ -218,7 +218,7 @@ export function Contact() {
             <div className="flex items-center gap-2">
               <a
                 href={resumeUrl}
-                download="RAHUL_M_3d.pdf"
+                download="RAHUL_M_3D1.pdf"
                 className="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-colors shadow-md shadow-accent/20"
               >
                 <Download className="w-4 h-4" />
