@@ -123,7 +123,7 @@ export function Navigation() {
 
           {/* Desktop Right CTA - Resume only (Projects is in nav) */}
           <div className="hidden sm:flex items-center gap-3">
-            <a href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'} download="RAHUL_M_3d.pdf">
+            <a href={artistProfile.resumePath || '/resume/RAHUL_M_3D1.pdf'} download="RAHUL_M_3D1.pdf">
               <Button size="sm" variant="secondary" className="gap-1.5 text-xs">
                 <Download className="w-3.5 h-3.5" />
                 Resume
@@ -173,7 +173,7 @@ export function Navigation() {
                   );
                 })}
                 <div className="pt-4 border-t border-border/50 flex flex-col gap-2.5 mt-3">
-                  <a href={artistProfile.resumePath || '/resume/RAHUL_M_3d.pdf'} download="RAHUL_M_3d.pdf">
+                  <a href={artistProfile.resumePath || '/resume/RAHUL_M_3D1.pdf'} download="RAHUL_M_3D1.pdf">
                     <Button variant="secondary" className="w-full gap-2 text-xs">
                       <Download className="w-4 h-4" />
                       Download Resume (PDF)

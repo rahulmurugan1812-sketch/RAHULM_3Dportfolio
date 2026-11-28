@@ -32,7 +32,7 @@ export const artistProfile: ArtistProfile = {
   location: 'Tamil Nadu, India',
   email: 'rahulmurugan1812@gmail.com',
   phone: '8072164394',
-  resumePath: assetPath('resume/RAHUL_M_3d.pdf'),
+  resumePath: assetPath('resume/RAHUL_M_3D1.pdf'),
 
   socialLinks: [
     {
